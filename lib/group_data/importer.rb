@@ -170,31 +170,31 @@ module GroupData
 
       ling_associations_bar.finish if @verbose
 
-      print_to_console "processing #{csv_size(:membership)} memberships"
+      # print_to_console "processing #{csv_size(:membership)} memberships"
 
-      roles_bar = ProgressBar.new("Roles...", csv_size(:role)) if @verbose
+      # roles_bar = ProgressBar.new("Roles...", csv_size(:role)) if @verbose
 
-      csv_for_each :role do |row|
+      # csv_for_each :role do |row|
 
-        # Look for the member
-        group     = groups[row["group_id"]]
-        member_id   = user_ids[row["member_id"]]
-        membership  = group.memberships.find_by_member_id(member_id)
+      #   # Look for the member
+      #   group     = groups[row["group_id"]]
+      #   member_id   = user_ids[row["member_id"]]
+      #   membership  = group.memberships.find_by_member_id(member_id)
 
-        # Look for the language
-        language = Ling.find(ling_ids[row["resource_id"]])
+      #   # Look for the language
+      #   language = Ling.find(ling_ids[row["resource_id"]])
 
-        # Now add the role to the member for that language
-        membership.add_expertise_in(language) unless language.nil?
-        if language.nil?
-          puts row["resource_id"] 
-          puts ling_ids[row["resource_id"]]
-        end
+      #   # Now add the role to the member for that language
+      #   membership.add_expertise_in(language) unless language.nil?
+      #   if language.nil?
+      #     puts row["resource_id"] 
+      #     puts ling_ids[row["resource_id"]]
+      #   end
 
-        roles_bar.inc if @verbose
-      end
+      #   roles_bar.inc if @verbose
+      # end
 
-      roles_bar.finish if @verbose
+      # roles_bar.finish if @verbose
 
       print_to_console "processing #{csv_size(:category)} categories"
 
