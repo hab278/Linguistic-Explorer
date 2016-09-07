@@ -143,7 +143,7 @@ group :test, :development do
 
   # # Used to test with a real browser
   gem "selenium", "~>0.2.11"
-  gem "selenium-webdriver", "~>2.53.0"
+  gem "selenium-webdriver", "~>2.53.4"
   gem "selenium-client", "~>1.2.18"
   # # In this case the browser is phantomjs
   # gem 'poltergeist'
@@ -155,5 +155,8 @@ group :test, :development do
   gem 'metric_fu', "~>4.11.1"
   gem 'rails_best_practices', "~>1.15.4"
   gem 'simplecov', '~> 0.7.1', :require => false
+
+
+  gem 'pry'
 
 end
